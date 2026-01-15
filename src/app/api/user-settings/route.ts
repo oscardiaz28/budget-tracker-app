@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET( req: NextRequest ){
     const user = await currentUser()
@@ -10,5 +10,8 @@ export async function GET( req: NextRequest ){
     const userSettings = await prisma.userSettings.findUnique({
         where: { userId: user.id }
     })
-    return userSettings
+    if(!userSettings){
+        return NextResponse.json({message: "User doesn't have settings"})
+    }
+    return NextResponse.json(userSettings)
 }
