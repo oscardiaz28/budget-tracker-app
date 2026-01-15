@@ -8,11 +8,14 @@ CREATE TABLE "UserSettings" (
 
 -- CreateTable
 CREATE TABLE "Category" (
+    "id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "name" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "icon" TEXT NOT NULL,
-    "type" TEXT NOT NULL DEFAULT 'income'
+    "type" TEXT NOT NULL DEFAULT 'income',
+
+    CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable

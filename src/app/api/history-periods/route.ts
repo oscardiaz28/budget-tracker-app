@@ -13,7 +13,6 @@ export async function GET( req: NextRequest ){
         distinct: ["year"],
         orderBy: { year: "asc" }
     })
-
     if( !result ) return NextResponse.json([new Date().getFullYear()])
     const years = result.map( el => el.year )
     if( years.length == 0 ) {

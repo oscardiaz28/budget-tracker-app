@@ -5,9 +5,6 @@ import React, { ReactNode } from 'react'
 
 async function layout({ children } : { children: ReactNode }) {
 
-    // const completed = await isProfileComplete()
-    // if(completed) redirect("/")
-
     return (
         <div className='flex items-center justify-center h-screen w-full flex-col'>
             <div className='absolute top-5 right-5'>
